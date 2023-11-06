@@ -1,0 +1,20 @@
+p .task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+button {
+  width: fit-content;
+  height: max-content;
+  padding: 2px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+li {
+  padding: 2px;
+}

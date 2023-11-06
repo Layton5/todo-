@@ -1,0 +1,9 @@
+.insert {
+  border: 2px solid goldenrod;
+  border-radius: 5px;
+  width: 300px;
+}
+button {
+  background-color: yellow;
+  border-radius: 5px;
+}
