@@ -4,34 +4,39 @@ import "./Header.css";
 const Header = ({ setTodos, todos }) => {
   const [input, setInput] = useState("");
 
+  const addTodo = () => {
+    if (!input) {
+      return alert("You cannot add an empty task");
+    }
+    setTodos((previousTask) => [
+      ...previousTask,
+      {
+        id: todos.length + 1,
+        text: input,
+      },
+    ]);
+    setInput("");
+  };
+
+  const addTodoItem = (e) => {
+    if (e.keyCode === 13) {
+      addTodo();
+    }
+  };
+
   return (
     <div>
+      <h1>You have {todos.length} todos</h1>
       <input
         type="text"
         className="insert"
         value={input}
+        onKeyDown={(e) => addTodoItem(e)}
         onChange={(e) => {
           setInput(e.target.value);
         }}
       />
-      <button
-        onClick={() => {
-          if (!input) {
-            return alert("You cannot add an empty task");
-          }
-          setTodos((previousTask) => [
-            ...previousTask,
-            {
-              id: todos.length + 1,
-              text: input,
-              // isCompleted: false,
-            },
-          ]);
-          setInput("");
-        }}
-      >
-        Add
-      </button>
+      <button onClick={addTodo}>Add</button>
     </div>
   );
 };
