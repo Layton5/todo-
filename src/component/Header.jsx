@@ -16,10 +16,9 @@ const Header = ({ setTodos, todos }) => {
       />
       <button
         onClick={() => {
-          // if (input === "") {
-          //   alert("You cannot add an empty task");
-
-          // }
+          if (!input) {
+            return alert("You cannot add an empty task");
+          }
           setTodos((previousTask) => [
             ...previousTask,
             {

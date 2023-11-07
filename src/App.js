@@ -20,14 +20,22 @@ function App() {
     });
   };
 
-  // const Edit = (id = {
-  //   setTodos,
-  // });
+  //Edit
+  const editTodo = (id, newText) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todos) => {
+        if (todos.id === id) {
+          return { ...todos, text: newText, editing: !todos.editing };
+        }
+        return todos;
+      })
+    );
+  };
   return (
     <div className="App">
       <h1>Task Manager</h1>
       <Header setTodos={setTodos} todos={todos} />
-      <Task todos={todos} deleteTodo={deleteTodo} />
+      <Task todos={todos} deleteTodo={deleteTodo} editTodo={editTodo} />
       <Footer todos={todos} clearAll={clearAll} />
     </div>
   );

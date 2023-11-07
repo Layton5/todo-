@@ -17,4 +17,6 @@ button {
 
 li {
   padding: 2px;
+  list-style: circle;
+  font-weight: 600;
 }
